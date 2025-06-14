@@ -4,6 +4,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [Header("Config")]
     [SerializeField] private PlayerStats stats;
+    private PlayerAnimations playerAnimations;
+
+    private void Awake()
+    {
+        playerAnimations = GetComponent<PlayerAnimations>();
+    }
 
     private void Update()
     {
@@ -25,6 +31,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void PlayerDead()
     {
-        Debug.Log("Dead.");
+        playerAnimations.SetDeadAnimation();
     }
 }
